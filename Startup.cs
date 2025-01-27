@@ -21,9 +21,11 @@ namespace Catalog
             Configuration = configuration;
         }
 
+        // / Read configuration info not suitable to hardcode in services - from: files, env vars
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        // / Register all services to use across the application
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -35,6 +37,7 @@ namespace Catalog
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // / The request handling pipeline configuration. Defines middleware components before code executes
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

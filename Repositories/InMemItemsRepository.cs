@@ -6,7 +6,7 @@ using Catalog.Entities;
 
 namespace Catalog.Repositories
 {
-    public class InMemItemsRepository
+    public class InMemItemsRepository : IInMemItemsRepository
     {
         // In memory data for initializers setup
         // Read-only instance member should not change after object new

@@ -12,7 +12,8 @@
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
             "problemMatcher": "$msCompile",
-            "group": { // My addition to build in one step
+            // Suggested addition to build in one step
+            "group": {
                 "kind": "build",
                 "isDefault": true
             }

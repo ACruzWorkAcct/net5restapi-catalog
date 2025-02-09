@@ -21,7 +21,7 @@ namespace Catalog.Controllers
         [HttpGet]
         public IEnumerable<Item> GetItems()
         {
-            var items = repository.GetItems();
+            var items = repository.GetItems().Select( _ => new Item);
 
             return items;
         }

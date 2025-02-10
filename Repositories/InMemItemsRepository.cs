@@ -26,29 +26,10 @@ namespace Catalog.Repositories
         {
             return items.Where(_ => _.Id == id).SingleOrDefault();
         }
-        // public Task CreateItemAsync(Item item)
-        // {
-        //     throw new NotImplementedException();
-        // }
 
-        // public Task DeleteItemAsync(Guid id)
-        // {
-        //     throw new NotImplementedException();
-        // }
-
-        // public Task<Item> GetItemAsync(Guid id)
-        // {
-        //     throw new NotImplementedException();
-        // }
-
-        // public Task UpdateItemAsync(Item item)
-        // {
-        //     throw new NotImplementedException();
-        // }
-
-        // Task<System.Collections.Generic.IEnumerable<Item>> IItemsRepository.GetItemsAsync()
-        // {
-        //     throw new NotImplementedException();
-        // }
+        public void CreateItem(Item item)
+        {
+            items.Add(item);
+        }
     }
 }

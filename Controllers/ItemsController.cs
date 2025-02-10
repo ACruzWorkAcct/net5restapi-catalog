@@ -41,5 +41,24 @@ namespace Catalog.Controllers
 
             return item.AsDto();
         }
+
+        // POST /items
+        [HttpPost]
+        public ActionResult<ItemDto> CreateItem(CreateItemDto itemDto)
+        {
+            Item item = new()
+            {
+                Name = itemDto.Name,
+                Price = itemDto.Price,
+                Id = Guid.NewGuid(),
+                CreatedDate = DateTimeOffset.UtcNow
+            };
+
+            repository.CreateItem(item);
+
+            // Expected arguments: string actionName, object routeValues, [ActionResultObjectValue] object value
+            //  For 'routeValues' it is not the URL address. It is the value passed at that URL route. 
+            return CreatedAtAction(nameof(GetItem), new { id = item.Id }, item.AsDto());
+        }
     }
 }

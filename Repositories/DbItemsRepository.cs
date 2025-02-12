@@ -1,11 +1,23 @@
 using System;
 using System.Collections.Generic;
 using Catalog.Entities;
+using MongoDB.Driver;
 
 namespace Catalog.Repositories
 {
     public class DbItemsRepository : IItemsRepository
     {
+        // MongoDB Client fields
+        private const string collectionName = "items";
+        private const string dbName = "catalogDb";
+        private readonly IMongoCollection<Item> itemsCollection;
+
+        public DbItemsRepository(IMongoClient mongoClient)
+        {
+            IMongoDatabase database = mongoClient.GetDatabase(dbName);
+            itemsCollection = database.GetCollection<Item>(collectionName);
+        }
+
         public void CreateItem(Item item)
         {
             throw new NotImplementedException();
